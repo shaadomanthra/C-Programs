@@ -10,9 +10,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int linear_search(int arr[],int size,int key);
+
+
+int linear_search(int arr[],int size,int key){
+ 
+    int position = -1,i;
+    
+     /* Find the element */
+    for(i=0;i<size;i++){
+        if(arr[i]==key)
+            position = i+1;
+    }
+    
+    return position; 
+}
+
 int main()
 {
-    int i,n,key,position=-1;
+    int i,n,key,position;
     int *arr;
     
     /* Take the count of number of elements */
@@ -33,11 +49,8 @@ int main()
     printf("\nEnter the element to be searched:\n");
     scanf("%d",&key);
     
-    /* Find the element */
-    for(i=0;i<n;i++){
-        if(arr[i]==key)
-            position = i+1;
-    }
+    /* Call the linear search function */
+    position = linear_search(arr,n,key);
     
     /* Print the position of element */
     if(position!=-1)
@@ -47,3 +60,7 @@ int main()
     
     return 0;
 }
+
+
+
+
